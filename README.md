@@ -21,7 +21,7 @@ These scripts set a fixed IP in that qemu subnet.
 
 So:
 ```
-192.168.122.20/24
+192.168.122.20/32
 ```
 gives IP of:
 ```
@@ -49,18 +49,18 @@ setup.sh will download the base cloud image if it is not present.
 
 ## Usage
 
-- Start by copying the server-template folder to a new 'server-name' folder
-- Generate a unique mac address and replace the one in `server-name/run.sh`
-- Also replace mac address in `server-name/network_init.cfg`
-- Set desired ip in `server-name/network_init.cfg`
-- Change Hostname in `server-name/cloud_init.cfg`
-- Add your ssh public key in `server-name/cloud_init.cfg`
-- (optional) Change password in `server-name/cloud_init.cfg`
-- (optional) Adjust memory and -smp details in `server-name/run.sh` (defaults to 2 Gigabytes of RAM and 2 CPU cores
-- (optional) Increment tap interface number if you want to run more than one vm concurrently (default is tap0)
-- 'cd server-name'
-- Run `./setup.sh` - will download the circa 526mb cloud image if not present, be patient!
-- Run `./run.sh`
+1. Start by copying the server-template folder to a new 'server-name' folder
+2. Generate a unique mac address and replace the one in `server-name/run.sh`
+3. Also replace mac address in `server-name/network_init.cfg`
+4. Set desired ip in `server-name/network_init.cfg`
+5. Change Hostname in `server-name/cloud_init.cfg`
+6. Add your ssh public key in `server-name/cloud_init.cfg`
+7. (optional) Change password in `server-name/cloud_init.cfg`
+8. (optional) Adjust memory and -smp details in `server-name/run.sh` (defaults to 2 Gigabytes of RAM and 2 CPU cores
+9. (optional) Increment tap interface number if you want to run more than one vm concurrently (default is tap0)
+10. 'cd server-name'
+11. Run `./setup.sh` - will download the circa 526mb cloud image if not present, be patient!
+12. Run `./run.sh`
 
 If you kept the default fixed ip, username and have added your ssh public key you can log into your new VM with `ssh ubuntu@192.168.122.20`.
 
