@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Check for ubuntu server base image
-BASE=../base-images/focal-server-cloudimg-amd64-disk-kvm.img
+BASE=../base-images/groovy-server-cloudimg-amd64-disk-kvm.img
 if [[ -f "$BASE" ]]; then
   echo "$BASE found."
 else
-  echo "Fetching Ubuntu Server Cloud 20.04 base image"
+  echo "Fetching Ubuntu Server Cloud 20.10 base image"
 # download if not present
-wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-disk-kvm.img -P ../base-images
+wget https://cloud-images.ubuntu.com/groovy/current/groovy-server-cloudimg-amd64-disk-kvm.img -P ../base-images
 fi
 
 
