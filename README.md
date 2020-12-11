@@ -15,6 +15,24 @@ Depends on the default network bridge created by the manjaro libvirt package, an
 
 ## Networking
 
+Relies on virb0 bridge provided by Virtual Machine Manager/libvirt so ensure those packages are installed.
+
+Then start the libvert daemon:
+
+```
+sudo systemctl enable libvirtd.service
+sudo systemctl start libvirtd.service
+```
+Should then be visible:
+```
+sudo virsh net-list --all
+
+ Name      State    Autostart   Persistent
+--------------------------------------------
+ default   active   yes         yes
+
+```
+
 Default virbr0 (from install of libvirt) does NAT on the 192.168.122.0/24 network used by qemu.
 
 These scripts set a fixed IP in that qemu subnet.
@@ -31,7 +49,7 @@ gives IP of:
 The default user is 'Ubuntu' with password 'linux', set in cloud_init.cfg
 
 So the VM is reachable from your host with:
-ssh ubuntu@192.168.122.20
+ssh ubuntu@192.168.122.20 and password 'linux'
 
 But not from elsewhere on network.
 
