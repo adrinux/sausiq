@@ -4,6 +4,8 @@
 
 A couple of shell scripts and a couple of cloud init config files to get an Ubuntu Server Cloud virtual machine running in Qemu. Uses the Ubuntu Server cloud image.
 
+Currently the 20.10 'Groovy Gorilla' image is hard coded but can be edited in setup.sh to a different version.
+
 I use this for testing my Ansible roles before running them against actual cloud based virtual servers. Such as those at Linode (Please use my [referal URL](https://www.linode.com/?r=dab963ab63e7e4f2a6f32c334bf839513928ff5d) if you choose Linode as a host).
 
 ## Notes
