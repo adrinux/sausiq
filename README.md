@@ -39,7 +39,7 @@ These scripts set a fixed IP in that qemu subnet.
 
 So:
 ```
-192.168.122.20/32
+192.168.122.20/24
 ```
 gives IP of:
 ```
@@ -84,8 +84,11 @@ If you kept the default fixed ip, username and have added your ssh public key yo
 
 Allow enough time for cloud_init to install the qemu-guest-agent package then log in and shutdown.
 
-You can then uncomment `-nographic` in `run.sh` for a headless vm.
-On next run you'll need to shut down via SSH or do a hard shutdown with `quit` in qemu monitor.
+Then edit **run.sh** and:
+1. Change -monitor from 'stdio' to 'none' (if you plan on running more than one vm concurrently).
+2. (optional) Uncomment `-nographic` for a headless vm.
+
+On next run you'll need to shut down via SSH (obviously).
 
 
 
