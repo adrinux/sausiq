@@ -48,10 +48,10 @@ gives IP of:
 192.168.122.20
 ```
 
-The default user is 'Ubuntu' with password 'linux', set in cloud_init.cfg
+The default user is 'root' with password 'linux', set in cloud_init.cfg
 
 So the VM is reachable from your host with:
-ssh ubuntu@192.168.122.20 and password 'linux'
+ssh root@192.168.122.20 and password 'linux'
 
 But not from elsewhere on network.
 
@@ -82,7 +82,7 @@ setup.sh will download the base cloud image if it is not present.
 11. Run `./setup.sh` - will download the circa 526mb cloud image if not present, be patient!
 12. Run `./run.sh`
 
-If you kept the default fixed ip, username and have added your ssh public key you can log into your new VM with `ssh ubuntu@192.168.122.20`.
+If you kept the default fixed ip, username and have added your ssh public key you can log into your new VM with `ssh root@192.168.122.20`.
 
 Allow enough time for cloud_init to install the qemu-guest-agent package then log in and shutdown.
 
