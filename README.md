@@ -87,6 +87,7 @@ If you kept the default fixed ip, username and have added your ssh public key yo
 Allow enough time for cloud_init to install the qemu-guest-agent package then log in and shutdown.
 
 Then edit **run.sh** and:
+
 1. Change -monitor from 'stdio' to 'none' (if you plan on running more than one vm concurrently).
 2. (optional) Uncomment `-nographic` for a headless vm.
 
