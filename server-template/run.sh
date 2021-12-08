@@ -27,7 +27,7 @@ args=(
   -machine q35,accel=kvm
   -smp 4,cores=2
   -netdev tap,id=net0,ifname=$TAP_NO,script=no,downscript=no
-  -device virtio-net-pci,netdev=net0,id=net0,mac=52:54:00:8d:89:c5
+  -device virtio-net-pci,netdev=net0,id=net0,mac=MACADDRESS
   -drive file=cidata.iso,index=0,media=cdrom,format=raw
   -drive file=system.qcow2,index=1,media=disk,format=qcow2
   -vga none
