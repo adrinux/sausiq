@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
 # Check for ubuntu server base image
-BASE=../base-images/impish-server-cloudimg-amd64-disk-kvm.img
+BASE=../base-images/jammy-server-cloudimg-amd64-disk-kvm.img
 if [[ -f "$BASE" ]]; then
   echo "$BASE found."
 else
-  echo "Fetching Ubuntu Server Cloud 21.10 base image"
+  echo "Fetching Ubuntu Server Cloud 22.04 base image"
 # download if not present
-wget https://cloud-images.ubuntu.com/impish/current/impish-server-cloudimg-amd64-disk-kvm.img -P ../base-images
+wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64-disk-kvm.img -P ../base-images
 fi
 
 # Check if we're written a mac address and write it if not
 if grep "MACADDRESS" run.sh network_init.cfg; then
   echo "Generating random mac address"
   MAC_ADDR=$(printf '52:54:00:%02x:%02x:%02x' $((RANDOM%256)) $((RANDOM%256)) $((RANDOM%256)))
-  echo $MAC_ADDR
+  echo "$MAC_ADDR"
   echo "Writing random mac address to run.sh and network_init."
   sed -i "s/MACADDRESS/${MAC_ADDR}/g" run.sh
   sed -i "s/MACADDRESS/${MAC_ADDR}/g" network_init.cfg
