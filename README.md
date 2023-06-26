@@ -8,6 +8,8 @@ Well this branch is more like SADSIQ
 
 Should have gone for a more generic project name.
 
+# NOT CURRENTLY FUNCTIONAL
+
 A couple of shell scripts and a couple of cloud init config files to get a Debian Server Cloud virtual machine running in Qemu. Uses the Debian Server genericcloud image.
 
 Currently the Debian 12 'Bookworm' image is hard coded but can be edited in setup.sh to a different version.
