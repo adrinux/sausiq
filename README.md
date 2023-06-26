@@ -2,9 +2,15 @@
 
 <u>S</u>emi <u>A</u>utomated <u>U</u>buntu <u>S</u>erver <u>I</u>n <u>Q</u>emu
 
-A couple of shell scripts and a couple of cloud init config files to get an Ubuntu Server Cloud virtual machine running in Qemu. Uses the Ubuntu Server cloud image.
+Well this branch is more like SADSIQ
 
-Currently the 22.04 'Jammy Jellyfish' image is hard coded but can be edited in setup.sh to a different version.
+<u>S</u>emi <u>A</u>utomated <u>D</u>ebian <u>S</u>erver <u>I</u>n <u>Q</u>emu
+
+Should have gone for a more generic project name.
+
+A couple of shell scripts and a couple of cloud init config files to get a Debian Server Cloud virtual machine running in Qemu. Uses the Debian Server genericcloud image.
+
+Currently the Debian 12 'Bookworm' image is hard coded but can be edited in setup.sh to a different version.
 
 I use this for testing my Ansible roles before running them against actual cloud based virtual servers.
 
@@ -64,16 +70,29 @@ setup.sh will download the base cloud image if it is not present.
 
 ## Usage
 
-1. Start by copying the server-template folder to a new 'server-name' folder
+1. Start by copying the server-template folder contents to a new 'server-name' folder
 2. Set desired ip in `server-name/network_init.cfg`
 3. Change Hostname in `server-name/cloud_init.cfg`
 4. Add your ssh public key in `server-name/cloud_init.cfg`
 5. (optional) Change password in `server-name/cloud_init.cfg`
 6. (optional) Adjust memory and -smp details in `server-name/run.sh` (defaults to 2 Gigabytes of RAM and 2 CPU cores
 7. (optional) Increment tap interface number if you want to run more than one vm concurrently (default is tap0)
-8. 'cd server-name'
-9. Run `./setup.sh` - will download the circa 526mb cloud image if not present, be patient!
-10. Run `./run.sh`
+8. (optional) If you already downloaded the cloud image copy the base-images folder to the same directory as your server-name folder and place the image in it. eg directory layout:
+
+```
+| - debian-server
+    | - server-name
+        | cloud_init.cfg
+        | network_init.cfg
+        | run.sh
+        | setup.sh
+    | - base-images
+        | debian-12-genericcloud-amd64.qcow2
+```
+
+9. 'cd server-name'
+10. Run `./setup.sh` - will download the circa 526mb cloud image if not present, be patient!
+11. Run `./run.sh`
 
 If you kept the default fixed ip, username and have added your ssh public key you can log into your new VM with `ssh root@192.168.122.20`.
 
