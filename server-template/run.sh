@@ -22,7 +22,7 @@ fi
 # Specify Qemu command line options
 args=(
   -enable-kvm
-  -m 2G
+  -m 4G
   -cpu host
   -machine q35,accel=kvm
   -smp 4,cores=2

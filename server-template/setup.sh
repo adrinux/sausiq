@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Check for Debian server base image
-BASE=../base-images/debian-12-genericcloud-amd64.qcow2
+BASE=../base-images/debian-12-generic-amd64.qcow2
 if [[ -f "$BASE" ]]; then
   echo "$BASE found."
 else
   echo "Fetching Debian Server 12 Bookworm generic cloud base image"
 # download if not present
-wget https://gemmei.ftp.acc.umu.se/images/cloud/bookworm/latest/debian-12-genericcloud-amd64.qcow2 -P ../base-images
+wget https://gemmei.ftp.acc.umu.se/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2 -P ../base-images
 fi
 
 # Check if we're written a mac address and write it if not
@@ -28,9 +28,7 @@ if [[ -f "$DRIVE" ]]; then
   echo "$DRIVE found."
 else
   # Create if not present
-  qemu-img create -f qcow2 -F qcow2 -o backing_file=$BASE $DRIVE
-  # Resize
-  qemu-img resize $DRIVE 10G
+  qemu-img create -f qcow2 -F qcow2 -o backing_file=$BASE $DRIVE 25G
 fi
 
 # Create Cloud config image iso every time to pick up changes
